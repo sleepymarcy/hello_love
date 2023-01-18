@@ -1,8 +1,10 @@
-local my_world = love.physics.newWorld()
-local player_position_x = 100
-local player_position_y = 100
+local u = 20 -- unit of length
 
-local player_shape = love.physics.newRectangleShape(20,60)
+local my_world = love.physics.newWorld()
+local player_position_x = 2 * u
+local player_position_y = 2 * u
+
+local player_shape = love.physics.newRectangleShape(u, 3 * u)
 local player_body = love.physics.newBody(my_world, player_position_x, player_position_y, "dynamic")
 local player_fixture = love.physics.newFixture(player_body, player_shape)
 
