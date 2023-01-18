@@ -4,4 +4,5 @@ function love.conf(t)
     t.window.title = "Platformer"
     t.window.resizable = false
     t.window.fullscreen = false
+    t.modules.timer = true
 end
