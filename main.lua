@@ -1,6 +1,6 @@
-local u = 20 -- unit of length
+local u = 20 -- unit of length, meter actualy, because...
 
-local my_world = love.physics.newWorld()
+local my_world = love.physics.newWorld(0, 9.81*u) -- ... we set gravity to 9.81*u
 local player_position_x = 2 * u
 local player_position_y = 2 * u
 
