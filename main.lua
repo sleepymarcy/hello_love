@@ -1,20 +1,14 @@
-local u = 20 -- unit of length, meter actualy, because...
+U = 20 -- unit of length, meter actualy, because...
+WORLD = love.physics.newWorld(0, 9.81 * U) -- ... we set gravity to 9.81*u
 
-local my_world = love.physics.newWorld(0, 9.81*u) -- ... we set gravity to 9.81*u
-local player_position_x = 2 * u
-local player_position_y = 2 * u
-
-local player_shape = love.physics.newRectangleShape(u, 3 * u)
-local player_body = love.physics.newBody(my_world, player_position_x, player_position_y, "dynamic")
-local player_fixture = love.physics.newFixture(player_body, player_shape)
-
-local player_vertices
+local pr = require("player")
+local pm = require("platform")
 
 function love.update(dt)
-    my_world:update(dt)
-    player_vertices = {player_body:getWorldPoints(player_shape:getPoints())}
+    WORLD:update(dt)
 end
 
 function love.draw()
-    love.graphics.polygon("fill", player_vertices)
+    pr.player.draw()
+    pm.platform.draw()
 end

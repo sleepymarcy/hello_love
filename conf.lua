@@ -5,4 +5,5 @@ function love.conf(t)
     t.window.resizable = false
     t.window.fullscreen = false
     t.modules.timer = true
+    t.console = false
 end
