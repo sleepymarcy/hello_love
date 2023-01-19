@@ -1,13 +1,9 @@
--- init world and basic physics
-local m = 64
-local world = love.physics.newWorld(0, 9.81 * m, true)
-love.physics.setMeter(m)
+local m = love.physics.getMeter()
 
 local base_color = { love.graphics.getColor() }
-
 local ball = {
-    body = love.physics.newBody(world, 40, 40, "dynamic"),
-    shape = love.physics.newCircleShape(20),
+    body = love.physics.newBody(WORLD, 2*m, 2*m, "dynamic"),
+    shape = love.physics.newCircleShape(1*m),
     color = { 1, 0, 0 },
     draw = function(self)
         love.graphics.setColor(self.color)
@@ -17,9 +13,9 @@ local ball = {
 }
 ball.fixture = love.physics.newFixture(ball.body, ball.shape)
 
-local floor_height = 10;
+local floor_height = 1*m;
 local floor = {
-    body = love.physics.newBody(world, love.graphics.getWidth() / 2, love.graphics.getHeight() - floor_height/2, "static"),
+    body = love.physics.newBody(WORLD, love.graphics.getWidth() / 2, love.graphics.getHeight() - floor_height/2, "static"),
     shape = love.physics.newRectangleShape(love.graphics.getWidth(), floor_height),
     color = { 0, 1, 0 },
     draw = function(self)
@@ -32,11 +28,5 @@ local floor = {
 }
 floor.fixture = love.physics.newFixture(floor.body, floor.shape)
 
-function love.draw()
-    ball:draw()
-    floor:draw()
-end
 
-function love.update(dt)
-    world:update(dt)
-end
+return {ball = ball, floor = floor}
