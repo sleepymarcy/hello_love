@@ -1,6 +1,5 @@
 local default_love_color = { love.graphics.getColor() }
 
-
 local platform = {}
 local default_platform_color = { 1, 1, 1 }
 
