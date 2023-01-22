@@ -29,7 +29,7 @@ function player.new(x, y, width, height, color, keys)
         return { new_player.body:getWorldPoints(new_player.shape:getPoints()) }
     end
 
-    function new_player.handle_input()
+    function new_player.handle_input(is_touching_platform)
         if love.keyboard.isDown(keys.left) then
             -- go left
             local _, y = new_player.body:getLinearVelocity()
@@ -45,7 +45,7 @@ function player.new(x, y, width, height, color, keys)
         if love.keyboard.isDown(keys.jump) then
             -- jump
             local x, y = new_player.body:getLinearVelocity()
-            if y < 2 and y > -2 then
+            if is_touching_platform and y < 2 and y > -2 then
                 new_player.body:setLinearVelocity(x, -5 * U)
             end
         end
