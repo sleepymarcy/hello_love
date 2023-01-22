@@ -16,6 +16,7 @@ function platform.new(x, y, width, height, color)
     new_platform.shape = love.physics.newRectangleShape(width, height)
     new_platform.body = love.physics.newBody(WORLD, x, y, "static")
     new_platform.fixture = love.physics.newFixture(new_platform.body, new_platform.shape)
+    new_platform.fixture:setFriction(0.9)
 
     function new_platform.vertices()
         return { new_platform.body:getWorldPoints(new_platform.shape:getPoints()) }

@@ -14,14 +14,16 @@ function player.new(x, y, width, height, color, keys)
     new_player.color = color or default_player_color
     x = x or (10 * U)
     y = y or (0 * U)
-    width = width or (1 * U)
-    height = height or (3 * U)
+    width = width or (0.6 * U)
+    height = height or (1.67 * U)
     keys = keys or default_keys
 
 
     new_player.shape = love.physics.newRectangleShape(width, height)
     new_player.body = love.physics.newBody(WORLD, x, y, "dynamic")
+    new_player.body:setFixedRotation(true)
     new_player.fixture = love.physics.newFixture(new_player.body, new_player.shape)
+    new_player.fixture:setFriction(1)
 
     function new_player.vertices()
         return { new_player.body:getWorldPoints(new_player.shape:getPoints()) }
@@ -30,17 +32,22 @@ function player.new(x, y, width, height, color, keys)
     function new_player.handle_input()
         if love.keyboard.isDown(keys.left) then
             -- go left
-            new_player.body:setLinearVelocity(-20 * U, 0)
+            local _, y = new_player.body:getLinearVelocity()
+            new_player.body:setLinearVelocity(-5 * U, y)
         end
 
         if love.keyboard.isDown(keys.right) then
             -- go right
-            new_player.body:setLinearVelocity(20 * U, 0)
+            local _, y = new_player.body:getLinearVelocity()
+            new_player.body:setLinearVelocity(5 * U, y)
         end
 
         if love.keyboard.isDown(keys.jump) then
             -- jump
-            new_player.body:setLinearVelocity(0, -20 * U)
+            local x, y = new_player.body:getLinearVelocity()
+            if y < 2 and y > -2 then
+                new_player.body:setLinearVelocity(x, -5 * U)
+            end
         end
     end
 
