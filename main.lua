@@ -1,9 +1,14 @@
-U = 10 -- unit of length, meter actualy, because...
-WORLD = love.physics.newWorld(0, 9.81 * U) -- ... we set gravity to 9.81*u
+U = 15 -- unit of length, meter actualy, because...
+WORLD = love.physics.newWorld(0, 20 * U) -- ... we set gravity to 9.81*u
 
 -- FIXME: this can blow right into my face
 local is_touching_platform = false -- we've set it as local and pass as paramater to player.handle_input
-local function beginContact(a, b, coll) is_touching_platform = true end -- this doesn't check WHAT is being touched and BY WHAT
+local function beginContact(a, b, coll)
+    local nx, ny = coll:getNormal()
+    if ny ~= 0 then 
+        is_touching_platform = true
+    end
+end -- this doesn't check WHAT is being touched and BY WHAT
 
 local function endContact(a, b, coll) is_touching_platform = false end
 
@@ -16,10 +21,10 @@ local Coin = require("coins")
 local platforms = {}
 local coins = {}
 
-local platofrms_coords = require("platforms")
+local platforms_coords = require("platforms")
 
-for _, platoform in ipairs(platofrms_coords) do
-    table.insert(platforms, Platform.new(platoform[1], platoform[2]))
+for _, platform in ipairs(platforms_coords) do
+    table.insert(platforms, Platform.new(platform[1], platform[2], platform[3]))
 end
 
 for _, platforms in ipairs(platforms) do
@@ -28,6 +33,7 @@ end
 
 
 local player_1 = Player.new()
+
 
 function love.update(dt)
     WORLD:update(dt)
@@ -40,16 +46,3 @@ function love.draw()
 
     player_1.draw()
 end
-
--- beginContact gets called when two fixtures start overlapping (two objects collide).
--- endContact gets called when two fixtures stop overlapping (two objects disconnect).
--- preSolve is called just before a frame is resolved for a current collision
--- postSolve is called just after a frame is resolved for a current collision.
-
--- coll is the contact object created.
-
--- normalimpulse is the amount of impulse applied along the normal of the first point of collision.
--- It only applies to the postsolve callback, and we can ignore it for now.
-
--- tangentimpulse is the amount of impulse applied along the tangent of the first point of collision.
--- It only applies to the postsolve callback, and we can ignore it for now.

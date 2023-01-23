@@ -16,7 +16,7 @@ function platform.new(x, y, width, height, color)
     new_platform.shape = love.physics.newRectangleShape(new_platform.width, new_platform.height)
     new_platform.body = love.physics.newBody(WORLD, x, y, "static")
     new_platform.fixture = love.physics.newFixture(new_platform.body, new_platform.shape)
-    new_platform.fixture:setFriction(0.9)
+    new_platform.fixture:setFriction(0.4)
 
     function new_platform.vertices()
         return { new_platform.body:getWorldPoints(new_platform.shape:getPoints()) }
@@ -32,22 +32,3 @@ function platform.new(x, y, width, height, color)
 end
 
 return platform
-
-
--- local platform = {
---     shape = love.physics.newRectangleShape(3 * U, U / 2),
---     body = love.physics.newBody(WORLD, platform_position_x, platform_position_y, "static"),
---     color = { 1, 1, 1 }
--- }
--- platform.fixture = love.physics.newFixture(platform.body, platform.shape)
--- platform.vertices = function()
---     return { platform.body:getWorldPoints(platform.shape:getPoints()) }
--- end
-
--- function platform.draw()
---     love.graphics.setColor(platform.color)
---     love.graphics.polygon("fill", platform.vertices())
---     love.graphics.setColor(default_color)
--- end
-
--- return platform
