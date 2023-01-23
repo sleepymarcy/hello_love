@@ -1,19 +1,31 @@
 U = 10 -- unit of length, meter actualy, because...
 WORLD = love.physics.newWorld(0, 9.81 * U) -- ... we set gravity to 9.81*u
 
+-- FIXME: this can blow right into my face
 local is_touching_platform = false -- we've set it as local and pass as paramater to player.handle_input
 local function beginContact(a, b, coll) is_touching_platform = true end -- this doesn't check WHAT is being touched and BY WHAT
+
 local function endContact(a, b, coll) is_touching_platform = false end
 
 WORLD:setCallbacks(beginContact, endContact)
 
-
--- local player = require("player")
 local Platform = require("platform")
 local Player = require("player")
+local Coin = require("coins")
 
-local platform_1 = Platform.new()
-local platform_2 = Platform.new(150, 150)
+local platforms = {}
+local coins = {}
+
+local platofrms_coords = require("platforms")
+
+for _, platoform in ipairs(platofrms_coords) do
+    table.insert(platforms, Platform.new(platoform[1], platoform[2]))
+end
+
+for _, platforms in ipairs(platforms) do
+    table.insert(coins, Coin.new(platforms))
+end
+
 
 local player_1 = Player.new()
 
@@ -23,12 +35,10 @@ function love.update(dt)
 end
 
 function love.draw()
-    platform_1.draw()
-    platform_2.draw()
-    player_1.draw()
+    for _, platform in ipairs(platforms) do platform.draw() end
+    for _, coin in ipairs(coins) do coin.draw() end
 
-    -- pr.player.draw()
-    -- pm.platform.draw()
+    player_1.draw()
 end
 
 -- beginContact gets called when two fixtures start overlapping (two objects collide).

@@ -4,6 +4,7 @@ function love.conf(t)
     t.window.title = "Platformer"
     t.window.resizable = false
     t.window.fullscreen = false
+    t.window.msaa = 8
     t.modules.timer = true
     t.console = false
 end

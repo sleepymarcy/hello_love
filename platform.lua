@@ -9,11 +9,11 @@ function platform.new(x, y, width, height, color)
     new_platform.color = color or default_platform_color
     x = x or (10 * U)
     y = y or (10 * U)
-    width = width or (6 * U)
-    height = height or (1 * U)
+    new_platform.width = width or (6 * U)
+    new_platform.height = height or (0.5 * U)
 
 
-    new_platform.shape = love.physics.newRectangleShape(width, height)
+    new_platform.shape = love.physics.newRectangleShape(new_platform.width, new_platform.height)
     new_platform.body = love.physics.newBody(WORLD, x, y, "static")
     new_platform.fixture = love.physics.newFixture(new_platform.body, new_platform.shape)
     new_platform.fixture:setFriction(0.9)
