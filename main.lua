@@ -1,3 +1,5 @@
+local Platform = require("classes.Platform")
+
 U = 15 -- unit of length, meter actualy, because...
 WORLD = love.physics.newWorld(0, 20 * U) -- ... we set gravity to 9.81*u
 
@@ -20,6 +22,7 @@ local Coin = require("coins")
 
 local platforms = {}
 local coins = {}
+
 
 local platforms_coords = require("platforms")
 
