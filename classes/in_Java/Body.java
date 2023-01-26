@@ -24,4 +24,20 @@ public class Body
         this.type = type;
         world.add(this);
     }
+
+    /**
+     * Returns x to the outsider, since it's private.
+     */
+    public getX()
+    {
+        return this.x;
+    }
+
+    /**
+     * Returns y to the outsider, since it's private.
+     */
+    public getY()
+    {
+        return this.y;
+    }
 }
