@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="World" enable="true" strideversion="1">
+    <javadoc xml:space="preserve">What: World is a container for our physical objects (actually just their bodies). 
+Why: We had to create World because the body constructor needs it to exist.
+Origin: Copy of a World Class from Love2d.</javadoc>
+    <imports>
+        <import target="java.util.ArrayList" enable="true"/>
+        <import target="java.util.Random" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <comment xml:space="preserve">A number identifying the created world. Managed by Love2d.</comment>
+        <variable access="private" final="true" type="int" type-java="int" name="id" enable="true"/>
+        <comment xml:space="preserve">This represents a Love2d table of bodies passed to World.</comment>
+        <variable access="private" type="ArrayList&lt;Body&gt;" type-java="ArrayList&lt;Body&gt;" name="bodies" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve">this.id is initialised with a random number so we can tell which World is which if we have bunch of them
+bodies is initialised with a freshly made ArrayList</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <assign dest="this.id" dest-java="this.id" src="new Random().nextInt(1000)" src-java=" new Random().nextInt(1000)" enable="true"/>
+                <assign dest="bodies" dest-java="bodies" src="new ArrayList&lt;Body&gt;()" src-java=" new ArrayList &lt; Body &gt; ()" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="void" type-java="void" name="add" enable="true">
+            <javadoc xml:space="preserve">What: add is a method used to add an existing body to this worlds list of bodies.
+Why: because without it constructor of class Body would't be able to add new body to the array list because the list is PRIVATE.</javadoc>
+            <params>
+                <params type="Body" type-java="Body" name="body"/>
+            </params>
+            <throws/>
+            <body>
+                <call expression="bodies.add(body)" expression-java="bodies.add(body)" enable="true"/>
+            </body>
+        </method>
+    </methods>
+</class>

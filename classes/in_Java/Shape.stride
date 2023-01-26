@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class abstract="true" name="Shape" enable="true" strideversion="1">
+    <javadoc xml:space="preserve">What: Shapes are objects used to control mass and collisions.
+Why: It is used by Love2d in bundle with Body and Fixture to handle physics.
+Origin: Copy of a Shape Class from Love2d.</javadoc>
+    <imports/>
+    <implements/>
+    <fields>
+        <variable access="protected" type="int" type-java="int" name="radius" enable="true"/>
+    </fields>
+    <constructors/>
+    <methods>
+        <method access="public" type="int" type-java="int" name="getRadius" enable="true">
+            <javadoc xml:space="preserve">Gets the radius of the shape.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <return value="radius" value-java="radius" enable="true"/>
+            </body>
+        </method>
+    </methods>
+</class>

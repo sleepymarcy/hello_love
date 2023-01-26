@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Body" enable="true" strideversion="1">
+    <javadoc xml:space="preserve">What: Bodies are objects with velocity and position.
+Why: It is used by Love2d in bundle with Shape and Fixture to handle physics.
+Origin: Copy of a Body Class from Love2d.</javadoc>
+    <imports/>
+    <implements/>
+    <fields>
+        <comment xml:space="preserve">(x, y) coordinates of a body. Most of the time it's a center of mass.</comment>
+        <variable access="private" type="int" type-java="int" name="x" enable="true"/>
+        <variable access="private" type="int" type-java="int" name="y" enable="true"/>
+        <comment xml:space="preserve">Body can be of type: static, dynamic, kinematic</comment>
+        <variable access="private" type="BodyType" type-java="BodyType" name="type" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve">Important note: we use world.add(this) to add this newly created body to the specified world.</javadoc>
+            <params>
+                <params type="World" type-java="World" name="world"/>
+                <params type="int" type-java="int" name="x"/>
+                <params type="int" type-java="int" name="y"/>
+                <params type="BodyType" type-java="BodyType" name="type"/>
+            </params>
+            <throws/>
+            <body>
+                <assign dest="this.x" dest-java="this.x" src="x" src-java="x" enable="true"/>
+                <assign dest="this.y" dest-java="this.y" src="y" src-java="y" enable="true"/>
+                <assign dest="this.type" dest-java="this.type" src="type" src-java="type" enable="true"/>
+                <call expression="world.add(this)" expression-java="world.add(this)" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods/>
+</class>

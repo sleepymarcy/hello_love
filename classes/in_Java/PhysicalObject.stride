@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class abstract="true" name="PhysicalObject" enable="true" strideversion="1">
+    <javadoc xml:space="preserve">What: Class that gets info from body, shape, fixture and color and draws itself
+Why:
+ Origin: </javadoc>
+    <imports/>
+    <implements/>
+    <fields>
+        <variable access="protected" type="Body" type-java="Body" name="body" enable="true"/>
+        <variable access="protected" type="Shape" type-java="Shape" name="shape" enable="true"/>
+        <variable access="protected" type="Fixture" type-java="Fixture" name="fixture" enable="true"/>
+        <variable access="protected" type="Color" type-java="Color" name="color" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params>
+                <params type="Body" type-java="Body" name="body"/>
+                <params type="Shape" type-java="Shape" name="shape"/>
+                <params type="Color" type-java="Color" name="color"/>
+            </params>
+            <throws/>
+            <body>
+                <assign dest="this.body" dest-java="this.body" src="body" src-java="body" enable="true"/>
+                <assign dest="this.shape" dest-java="this.shape" src="shape" src-java="shape" enable="true"/>
+                <assign dest="this.fixture" dest-java="this.fixture" src="new Fixture(this.body,this.shape)" src-java=" new Fixture(this.body, this.shape)" enable="true"/>
+                <assign dest="this.color" dest-java="this.color" src="color" src-java="color" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="Body" type-java="Body" name="getBody" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <return value="body" value-java="body" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="Shape" type-java="Shape" name="getShape" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <return value="shape" value-java="shape" enable="true"/>
+            </body>
+        </method>
+        <methodproto type="void" type-java="void" name="draw" enable="true">
+            <javadoc xml:space="preserve"/>
+            <throws/>
+        </methodproto>
+    </methods>
+</class>
