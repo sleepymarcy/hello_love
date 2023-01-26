@@ -1,4 +1,3 @@
-public enum BodyType
-{
+public enum BodyType {
     DYNAMIC, STATIC, KINETIC
 }

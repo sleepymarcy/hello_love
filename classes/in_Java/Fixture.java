@@ -1,22 +1,20 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
-import lang.stride.*;
-
 /**
- * What: Fixtures attach shapes to bodies. 
- * Why: Because What + Origin. 
+ * What: Fixtures attach shapes to bodies.
+ * 
+ * Why: Because What + Origin.
+ * 
  * Origin: Copy of a Fixture Class from Love2d.
  */
-public class Fixture
-{
+public class Fixture {
     protected Body body;
     protected Shape shape;
 
     /**
-     * Wealds a shape to the body together, it's from Love2d
+     * Welds a shape to the body together, it's from Love2d
+     * 
      * Why: To create fixture.
      */
-    public Fixture(Body body, Shape shape)
-    {
+    public Fixture(Body body, Shape shape) {
         this.body = body;
         this.shape = shape;
     }
@@ -24,16 +22,14 @@ public class Fixture
     /**
      * Returns the body to the outsider because this is private.
      */
-    public Body getBody()
-    {
+    public Body getBody() {
         return this.body;
     }
 
     /**
      * Returns the shape to the outsider because this is private.
      */
-    public Shape getShape()
-    {
+    public Shape getShape() {
         return this.shape;
     }
 }
