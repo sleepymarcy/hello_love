@@ -1,6 +1,7 @@
 // WARNING: This file is auto-generated and any changes to it will be overwritten
 import lang.stride.*;
 import java.util.ArrayList;
+import java.lang.Math;
 
 /**
  * What: Shorthand for creating rectangular PolygonShapes.
@@ -17,12 +18,14 @@ public class RectangleShape extends Shape
      */
     public RectangleShape(int width, int height)
     {
+        // super(Math.sqrt(width*width+height*height)/2);
+        super(-1);
         this.width = width;
         this.height = height;
     }
 
     /**
-     * 
+     * Return width to the outsider because this is private.
      */
     public int getWidth()
     {
@@ -30,18 +33,10 @@ public class RectangleShape extends Shape
     }
 
     /**
-     * 
+     *  Return height to the outsider because this is private.
      */
     public int getHeight()
     {
         return height;
-    }
-
-    /**
-     * 
-     */
-    public int getRadius()
-    {
-        return this.radius;
     }
 }

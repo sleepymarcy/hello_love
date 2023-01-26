@@ -12,7 +12,8 @@ public class Fixture
     protected Shape shape;
 
     /**
-     * Takes body, shape that are passed on when the constructor is called and assigns them to this.body, this.shape
+     * Wealds a shape to the body together, it's from Love2d
+     * Why: To create fixture.
      */
     public Fixture(Body body, Shape shape)
     {
@@ -21,7 +22,7 @@ public class Fixture
     }
 
     /**
-     * Returns the body the fixture is attached to.
+     * Returns the body to the outsider because this is private.
      */
     public Body getBody()
     {
@@ -29,7 +30,7 @@ public class Fixture
     }
 
     /**
-     * Returns the shape of the fixture.
+     * Returns the shape to the outsider because this is private.
      */
     public Shape getShape()
     {

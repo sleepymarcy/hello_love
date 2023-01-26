@@ -21,8 +21,8 @@ public class World
      */
     public World()
     {
-        this.id =  new  Random().nextInt(1000);
-        bodies =  new  ArrayList < Body > ();
+        this.id =  new Random().nextInt(1000);
+        bodies =  new ArrayList < Body > ();
     }
 
     /**

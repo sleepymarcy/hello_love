@@ -10,8 +10,13 @@ public abstract class Shape
 {
     protected int radius;
 
+    public Shape(radius)
+    {
+        this.radius = radius;
+    }
+
     /**
-     * Gets the radius of the shape.
+     * Returns radius to the outsider because this is private.
      */
     public int getRadius()
     {
