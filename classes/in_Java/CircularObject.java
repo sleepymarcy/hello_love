@@ -12,9 +12,9 @@ public abstract class CircularObject extends PhysicalObject {
      * Creates new Body, new CircularShape, and passes them to supeclass
      * constructor.
      */
-    public CircularObject(World world, int px, int py, int radius, Color color) {
+    public CircularObject(World world, int px, int py, int radius, Color color, BodyType type) {
         super(
-                new Body(world, px, py, BodyType.STATIC),
+                new Body(world, px, py, type),
                 new CircularShape(radius),
                 color);
     }
@@ -24,7 +24,7 @@ public abstract class CircularObject extends PhysicalObject {
      */
     public void draw() {
         System.out.println("Draweded Circelele");
-        System.out.println("Coords: " + this.body.getX() + ", " + this.body.getY());
+        super.draw();
         System.out.println("Radius: " + this.shape.getRadius());
     }
 }

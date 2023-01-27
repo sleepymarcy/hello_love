@@ -11,17 +11,20 @@ public abstract class RectangularObject extends PhysicalObject {
      * Creates new Body, new RectangleShape, and passes them to supeclass
      * constructor.
      */
-    public RectangularObject(World world, int px, int py, int width, int height, Color color) {
+    public RectangularObject(World world, int px, int py, int width, int height, Color color, BodyType type) {
         super(
-                new Body(world, px, py, BodyType.STATIC),
+                new Body(world, px, py, type),
                 new RectangleShape(width, height),
-                color);
+                color
+            );
     }
 
     /**
      * Drawing function.
      */
     public void draw() {
+
         System.out.println("Draweded Rectangle");
+        super.draw();
     }
 }

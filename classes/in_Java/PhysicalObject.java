@@ -44,5 +44,7 @@ public abstract class PhysicalObject {
     /**
      * abstract - a method tha HAS to be defined in the children.
      */
-    abstract void draw();
+    void draw(){
+        System.out.println("Body coords: " + this.body.getX() + ", " + this.body.getY());
+    };
 }
